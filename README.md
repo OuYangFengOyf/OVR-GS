@@ -1,10 +1,10 @@
-# TF-OVOR: Training-Free Open-Vocabulary 3D Object Removal via Gaussian Splatting
+# OVR-GS: Training-Free Open-Vocabulary 3D Object Removal via Gaussian Splatting
 
 [![Paper](https://img.shields.io/badge/Paper-MDPI_Electronics-blue)](https://www.mdpi.com/journal/electronics)
 [![Python](https://img.shields.io/badge/Python-3.9+-green)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-> **TF-OVOR** is a training-free framework for open-vocabulary 3D object removal and inpainting built upon 3D Gaussian Splatting (3DGS). Given a natural-language instruction (e.g., *"remove the red cone"*), TF-OVOR automatically localizes, removes, and inpaints the target object in 3D — without any scene-specific fine-tuning.
+> **OVR-GS** is a training-free framework for open-vocabulary 3D object removal and inpainting built upon 3D Gaussian Splatting (3DGS). Given a natural-language instruction (e.g., *"remove the red cone"*), OVR-GS automatically localizes, removes, and inpaints the target object in 3D — without any scene-specific fine-tuning.
 
 <p align="center">
   <img src="assets/pipeline.png" width="95%" />
@@ -33,7 +33,7 @@
 
 ## Overview
 
-TF-OVOR consists of three tightly coupled stages:
+OVR-GS consists of three tightly coupled stages:
 
 | Stage | Module | Description |
 |-------|--------|-------------|
@@ -48,8 +48,8 @@ TF-OVOR consists of three tightly coupled stages:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/3171228612/TF-OVOR.git
-cd TF-OVOR
+git clone https://github.com/3171228612/OVR-GS.git
+cd OVR-GS
 ```
 
 ### 2. Create Conda Environment
@@ -127,13 +127,13 @@ cd ..
 |---------|--------|------|----------|
 | **SPIn-NeRF** | 10 | Front-facing | [Link](https://spinnerf3d.github.io/) |
 | **IMFine** | 20 | Multi-trajectory (90°/180°/360°) | [Link](https://github.com/Zhihao-Shi/IMFine) |
-| **TF-OVOR-360** | 12 | Full 360° | Included in `data/` |
+| **OVR-GS-360** | 12 | Full 360° | Included in `data/` |
 
 ### Data Structure
 
 ```
 data/
-├── tfovor/                     # TF-OVOR-360 dataset (included)
+├── tfovor/                     # OVR-GS-360 dataset (included)
 │   ├── bag/
 │   │   ├── images/             # Full-resolution images
 │   │   ├── images_2/           # 2x downsampled
@@ -177,7 +177,7 @@ python scripts/generate_multiscale.py \
 
 ## Quick Start
 
-Run the full TF-OVOR pipeline with a single command:
+Run the full OVR-GS pipeline with a single command:
 
 ```bash
 python run_tfovor.py \
@@ -388,7 +388,7 @@ bash scripts/run_spinnerf_all.sh
 # IMFine benchmark
 bash scripts/run_imfine_all.sh
 
-# TF-OVOR-360 benchmark
+# OVR-GS-360 benchmark
 bash scripts/run_tfovor360_all.sh
 ```
 
@@ -403,14 +403,14 @@ bash scripts/run_tfovor360_all.sh
 | Stable Diffusion | v1.5 | 4.3 GB | Auto-download via HuggingFace |
 | CLIP | ViT-L/14 | 890 MB | Auto-download via OpenAI |
 
-> **Note:** No scene-specific checkpoints are needed — TF-OVOR is training-free.
+> **Note:** No scene-specific checkpoints are needed — OVR-GS is training-free.
 
 ---
 
 ## Project Structure
 
 ```
-TF-OVOR/
+OVR-GS/
 ├── tfovor/                          # Core pipeline modules
 │   ├── stage1_parse_instruction.py  # LLM instruction parsing
 │   ├── stage1_grounded_sam.py       # Grounded-SAM mask generation
